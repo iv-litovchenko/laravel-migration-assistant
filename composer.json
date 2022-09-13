@@ -1,0 +1,18 @@
+{
+    "name": "litovchenko/migrationassistant",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Litovchenko\\Migrationassistant\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ivan Litovchenko",
+            "email": "iv-litovchenko@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
