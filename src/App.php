@@ -1,4 +1,5 @@
 <?php
+
 namespace Litovchenko\Migrationassistant;
 
 class App

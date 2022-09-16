@@ -1,5 +1,6 @@
 {
     "name": "litovchenko/migrationassistant",
+    "homepage": "https://github.com/iv-litovchenko/migrationassistant",
     "type": "project",
     "license": "MIT",
     "autoload": {
@@ -10,9 +11,17 @@
     "authors": [
         {
             "name": "Ivan Litovchenko",
-            "email": "iv-litovchenko@mail.ru"
+            "email": "iv-litovchenko@mail.ru",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Litovchenko\\Migrationassistant\\Providers\\LaravelProvider"
+            ]
+        }
+    }
 }
