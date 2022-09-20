@@ -1,8 +1,6 @@
-Migrations assistant
+# Migrations assistant
 
 ```
-composer create-project litovchenko/laravel-migration-assistant
-```
-```
+$ composer create-project litovchenko/laravel-migration-assistant
 $ php artisan massist
 ```
