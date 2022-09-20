@@ -1,12 +1,27 @@
 <?php
 
-namespace Litovchenko\Migrationassistant\Providers;
+namespace Litovchenko\MigrationAssistant\Providers;
 
-use Litovchenko\Migrationassistant\Commands\MigrationassistantCommand;
+use Litovchenko\MigrationAssistant\Commands\MigrationAssistantCommand;
+use Litovchenko\MigrationAssistant\Commands\Table\MakeTableAlterCommand;
+use Litovchenko\MigrationAssistant\Commands\Table\MakeTableCreateCommand;
+use Litovchenko\MigrationAssistant\Commands\Table\MakeTableCreatePivotCommand;
+use Litovchenko\MigrationAssistant\Commands\Table\MakeTableRenameCommand;
+use Litovchenko\MigrationAssistant\Commands\Table\MakeTableDropCommand;
+
+use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldAddCommand;
+use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldChangeCommand;
+use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldRenameCommand;
+use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldDropCommand;
+
+use Litovchenko\MigrationAssistant\Commands\RunMigration\RunMigrationDefaultCommand;
+use Litovchenko\MigrationAssistant\Commands\RunMigration\RunMigrationForceCommand;
+use Litovchenko\MigrationAssistant\Commands\RunMigration\RunMigrationFreshCommand;
+
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\ServiceProvider;
 
-class LaravelProvider extends ServiceProvider
+final class LaravelProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -17,7 +32,22 @@ class LaravelProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands([
-                MigrationassistantCommand::class
+                MigrationAssistantCommand::class,
+
+                MakeTableCreateCommand::class,
+                MakeTableCreatePivotCommand::class,
+                MakeTableAlterCommand::class,
+                MakeTableRenameCommand::class,
+                MakeTableDropCommand::class,
+
+                MakeFieldAddCommand::class,
+                MakeFieldChangeCommand::class,
+                MakeFieldRenameCommand::class,
+                MakeFieldDropCommand::class,
+
+                RunMigrationDefaultCommand::class,
+                RunMigrationForceCommand::class,
+                RunMigrationFreshCommand::class
             ]);
         }
 
@@ -34,15 +64,10 @@ class LaravelProvider extends ServiceProvider
         //     [__DIR__ . '/../../config/laravel-automatic-migrations.php' => config_path('laravel-automatic-migrations.php')],
         //     ['laravel-automatic-migrations', 'laravel-automatic-migrations:config']
         // );
-        //
-        // $this->publishes(
-        //     [__DIR__ . '/../../resources/stubs' => resource_path('stubs/vendor/laravel-automatic-migrations')],
-        //     ['laravel-automatic-migrations', 'laravel-automatic-migrations:stubs']
-        // );
     }
 
     public function register()
     {
-        // $this->mergeConfigFrom(__DIR__ . '/../../config/laravel-automatic-migrations.php', 'laravel-automatic-migrations');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/laravel-massist.php', 'laravel-massist');
     }
 }

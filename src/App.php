@@ -1,6 +1,6 @@
 <?php
 
-namespace Litovchenko\Migrationassistant;
+namespace Litovchenko\MigrationAssistant;
 
 class App
 {

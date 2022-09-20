@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::table('{{ REPLACE_TABLE_NAME }}', function (Blueprint $table) {
+            // $table->comment('This is a comment');
+            // $table->engine = 'InnoDB';
+            // DB::statement('ALTER TABLE {{ REPLACE_TABLE_NAME }} ENGINE = InnoDB');
+            // DB::statement('ALTER TABLE {{ REPLACE_TABLE_NAME }} ENGINE = MyISAM');
+        });
+    }
+
+    public function down()
+    {
+    }
+};

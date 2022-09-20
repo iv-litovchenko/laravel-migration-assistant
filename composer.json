@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Litovchenko\\Migrationassistant\\": "src/"
+            "Litovchenko\\MigrationAssistant\\": "src/"
         }
     },
     "authors": [
@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Litovchenko\\Migrationassistant\\Providers\\LaravelProvider"
+                "Litovchenko\\MigrationAssistant\\Providers\\LaravelProvider"
             ]
         }
     }

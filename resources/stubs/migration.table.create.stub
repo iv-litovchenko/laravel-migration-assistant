@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('{{ REPLACE_TABLE_NAME }}', function (Blueprint $table) {
+            // $table->comment('This is a comment');
+            $table->unsignedBigInteger('id');
+            $table->softDeletes();
+            $table->timestamps();
+
+            $table->string('title')->nullable()->default('value')->comment('my comment');
+            $table->text('bodytext')->nullable()->comment('my comment');
+
+            // $table->boolean('is_manager')->default(false);
+            // $table->decimal('percentage', 23, 4)->nullable();
+            // $table->enum('vote', [' 1', ' 2', ' 3', ' 4', ' 5'])->nullable();
+            // $table->unsignedBigInteger('changer_id')->nullable();
+        });
+    }
+
+    public function down()
+    {
+    }
+};
