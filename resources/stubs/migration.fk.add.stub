@@ -1,0 +1,6 @@
+            $table->foreign('local_key')
+                ->references('id')
+                ->on('other_table')
+                ->onDelete('cascade');
+
+                $table->dropForeign('some_table_local_key_foreign');
