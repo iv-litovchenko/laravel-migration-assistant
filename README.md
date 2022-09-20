@@ -1,4 +1,4 @@
-# Migrations assistant
+# Migration assistant
 
 ```
 $ composer create-project litovchenko/laravel-migration-assistant
