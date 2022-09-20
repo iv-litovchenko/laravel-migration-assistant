@@ -9,7 +9,7 @@ use function strtolower;
 
 final class MigrationAssistantCommand extends Command
 {
-    protected $signature = 'make:massist';
+    protected $signature = 'massist';
 
     public function handle()
     {
