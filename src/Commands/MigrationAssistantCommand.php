@@ -16,11 +16,12 @@ final class MigrationAssistantCommand extends Command
         $commands = config('laravel-massist.commands');
 
         $this->info("");
-        $this->info("╭─────────────────────╮");
-        $this->info("│                     │");
-        $this->info("│      Welcome!       │");
-        $this->info("│                     │");
-        $this->info("╰─────────────────────╯");
+        $this->info("╭───────────────────────────────────╮");
+        $this->info("│                                   │");
+        $this->info("│          Welcome v1.0.0!          │");
+        $this->info("│        Migration assistant        │");
+        $this->info("│                                   │");
+        $this->info("╰───────────────────────────────────╯");
         $this->info("");
 
         $i = 1;
