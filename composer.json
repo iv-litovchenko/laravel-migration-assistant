@@ -1,6 +1,6 @@
 {
-    "name": "litovchenko/migrationassistant",
-    "homepage": "https://github.com/iv-litovchenko/migrationassistant",
+    "name": "litovchenko/laravel-migrationassistant",
+    "homepage": "https://github.com/iv-litovchenko/laravel-migrationassistant",
     "type": "project",
     "license": "MIT",
     "autoload": {
