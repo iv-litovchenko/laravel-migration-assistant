@@ -1,1 +1,3 @@
-Сделать без анонимных миграций
+```
+composer create-project litovchenko/laravel-migration-assistant
+```
