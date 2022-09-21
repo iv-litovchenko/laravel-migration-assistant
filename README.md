@@ -9,5 +9,3 @@ $ php artisan massist
 [Video presentation on YouTube](https://youtu.be/S0gS01xudsk)
 
 ![Preview](https://raw.githubusercontent.com/iv-litovchenko/laravel-migration-assistant/master/resources/preview.gif)
-
-1
