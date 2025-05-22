@@ -2,6 +2,7 @@
 
 ```
 $ composer require litovchenko/laravel-migration-assistant
+$ composer require litovchenko/laravel-migration-assistant --ignore-platform-reqs
 $ php artisan massist
 ```
 
