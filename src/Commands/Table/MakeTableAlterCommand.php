@@ -7,7 +7,7 @@ use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 final class MakeTableAlterCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:table:alter';
-    protected $stubPath = 'migration.table.alter.stub';
+    protected $stubPath = 'table/alter.stub';
     protected $fileNamePrefix = 'table_alter_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';

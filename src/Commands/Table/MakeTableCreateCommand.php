@@ -7,7 +7,7 @@ use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 final class MakeTableCreateCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:table:create';
-    protected $stubPath = 'migration.table.create.stub';
+    protected $stubPath = 'table/create.stub';
     protected $fileNamePrefix = 'table_create_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';

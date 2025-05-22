@@ -1,14 +1,14 @@
 <?php
 
-namespace Litovchenko\MigrationAssistant\Commands\Field;
+namespace Litovchenko\MigrationAssistant\Commands\Index;
 
 use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 
-final class MakeFieldChangeCommand extends AbstractMakeCommand
+final class MakeIndexPkAddCommand extends AbstractMakeCommand
 {
-    protected $signature = 'make:massist:field:change';
-    protected $stubPath = 'field/change.stub';
-    protected $fileNamePrefix = 'field_change_';
+    protected $signature = 'make:massist:index:pk.add';
+    protected $stubPath = 'index/primary.add.stub';
+    protected $fileNamePrefix = 'field_add_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';
     protected $argFieldName = '';
@@ -16,7 +16,7 @@ final class MakeFieldChangeCommand extends AbstractMakeCommand
     public function handle()
     {
         $this->argTableName = $this->ask('Enter table name (example: posts)');
-        $this->argFieldName = $this->ask('Enter field name (example: title)');
+        $this->argFieldName = $this->ask('Enter field name (example: id, title)');
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName . '_' . $this->argFieldName);
             $this->info('Successfully completed!');

@@ -7,7 +7,7 @@ use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 final class MakeTableDropCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:table:drop';
-    protected $stubPath = 'migration.table.drop.stub';
+    protected $stubPath = 'table/drop.stub';
     protected $fileNamePrefix = 'table_drop_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';

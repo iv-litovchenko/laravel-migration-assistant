@@ -1,8 +1,9 @@
 {
-    "name": "litovchenko/laravel-migration-assistant",
+    "name": "iv-litovchenko/laravel-migration-assistant",
     "homepage": "https://github.com/iv-litovchenko/laravel-migration-assistant",
     "type": "project",
     "license": "MIT",
+    "version": "1.0.1",
     "autoload": {
         "psr-4": {
             "Litovchenko\\MigrationAssistant\\": "src/"

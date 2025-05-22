@@ -4,7 +4,7 @@ return [
     'commands' => [
         'Table' => [
             1 => 'Create',
-            2 => 'CreatePivot',
+            2 => 'CreatePivot // todo',
             3 => 'Rename',
             4 => 'Alter',
             5 => 'Drop'
@@ -13,12 +13,21 @@ return [
             1 => 'Add',
             2 => 'Change',
             3 => 'Rename',
+            4 => 'Move // todo',
+            5 => 'Drop'
+        ],
+        'Field relation' => [
+            1 => 'Add',
+            2 => 'Change',
+            3 => 'Rename',
             4 => 'Drop'
         ],
-        'FK (-)' => [
-
+        'Index' => [
+            1 => 'PK.Add',
+            2 => 'PK.Rename',
+            3 => 'PK.Drop'
         ],
-        'Index (-)' => [
+        'FK (-)' => [
 
         ],
         'Db content (-)' => [

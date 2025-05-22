@@ -7,7 +7,7 @@ use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 final class MakeFieldRenameCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:field:rename';
-    protected $stubPath = 'migration.field.rename.stub';
+    protected $stubPath = 'field/rename.stub';
     protected $fileNamePrefix = 'field_rename_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';
@@ -17,8 +17,8 @@ final class MakeFieldRenameCommand extends AbstractMakeCommand
     public function handle()
     {
         $this->argTableName = $this->ask('Enter table name (example: posts)');
-        $this->argFieldName1 = $this->ask('Enter field name 1 (example: bodytext)');
-        $this->argFieldName2 = $this->ask('Enter field name 2 (example: new_bodytext)');
+        $this->argFieldName1 = $this->ask('Enter field name 1 (example: title)');
+        $this->argFieldName2 = $this->ask('Enter field name 2 (example: title_new)');
 
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName . '_' . $this->argFieldName1 . '_to_' . $this->argFieldName2);

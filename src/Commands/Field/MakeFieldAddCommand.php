@@ -7,7 +7,7 @@ use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 final class MakeFieldAddCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:field:add';
-    protected $stubPath = 'migration.field.add.stub';
+    protected $stubPath = 'field/add.stub';
     protected $fileNamePrefix = 'field_add_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';
@@ -16,7 +16,7 @@ final class MakeFieldAddCommand extends AbstractMakeCommand
     public function handle()
     {
         $this->argTableName = $this->ask('Enter table name (example: posts)');
-        $this->argFieldName = $this->ask('Enter field name (example: bodytext/user_id)');
+        $this->argFieldName = $this->ask('Enter field name (example: title)');
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName . '_' . $this->argFieldName);
             $this->info('Successfully completed!');

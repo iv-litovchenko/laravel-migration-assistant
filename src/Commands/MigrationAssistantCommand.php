@@ -18,7 +18,7 @@ final class MigrationAssistantCommand extends Command
         $this->info("");
         $this->info("╭───────────────────────────────────╮");
         $this->info("│                                   │");
-        $this->info("│          Welcome v1.0.0!          │");
+        $this->info("│          Welcome v1.0.1!          │");
         $this->info("│        Migration assistant        │");
         $this->info("│                                   │");
         $this->info("╰───────────────────────────────────╯");

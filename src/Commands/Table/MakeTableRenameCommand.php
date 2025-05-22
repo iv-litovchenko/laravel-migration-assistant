@@ -7,7 +7,7 @@ use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 final class MakeTableRenameCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:table:rename';
-    protected $stubPath = 'migration.table.rename.stub';
+    protected $stubPath = 'table/rename.stub';
     protected $fileNamePrefix = 'table_rename_';
     protected $fileNamePostfix = '.php';
     protected $argTableName1 = '';
@@ -16,7 +16,7 @@ final class MakeTableRenameCommand extends AbstractMakeCommand
     public function handle()
     {
         $this->argTableName1 = $this->ask('Enter table name 1 (example: posts)');
-        $this->argTableName2 = $this->ask('Enter table name 2 (example: new_posts)');
+        $this->argTableName2 = $this->ask('Enter table name 2 (example: posts_new)');
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName1 . '_to_' . $this->argTableName2);
             $this->info('Successfully completed!');

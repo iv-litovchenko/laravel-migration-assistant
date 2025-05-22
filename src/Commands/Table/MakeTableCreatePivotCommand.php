@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 final class MakeTableCreatePivotCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:table:createpivot';
-    protected $stubPath = 'migration.table.createpivot.stub';
+    protected $stubPath = 'table/createpivot.stub';
     protected $fileNamePrefix = 'table_createpivot_';
     protected $fileNamePostfix = '.php';
     protected $argTableName1 = '';
@@ -16,7 +16,7 @@ final class MakeTableCreatePivotCommand extends AbstractMakeCommand
 
     public function handle()
     {
-        $this->argTableName1 = $this->ask('Enter table name 1 (news)');
+        $this->argTableName1 = $this->ask('Enter table name 1 (posts)');
         $this->argTableName2 = $this->ask('Enter table name 2 (tags)');
         $names = [];
         $names[] = $this->argTableName1;

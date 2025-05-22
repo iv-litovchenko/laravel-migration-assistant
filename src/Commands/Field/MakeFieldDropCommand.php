@@ -7,7 +7,7 @@ use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 final class MakeFieldDropCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:field:drop';
-    protected $stubPath = 'migration.field.drop.stub';
+    protected $stubPath = 'field/drop.stub';
     protected $fileNamePrefix = 'field_drop_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';
@@ -16,7 +16,7 @@ final class MakeFieldDropCommand extends AbstractMakeCommand
     public function handle()
     {
         $this->argTableName = $this->ask('Enter table name (example: posts)');
-        $this->argFieldName = $this->ask('Enter field name (example: bodytext)');
+        $this->argFieldName = $this->ask('Enter field name (example: title)');
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName . '_' . $this->argFieldName);
             $this->info('Successfully completed!');
