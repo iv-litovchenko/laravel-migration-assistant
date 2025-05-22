@@ -10,14 +10,13 @@ return new class extends Migration
     public function up()
     {
         Schema::table('{{ REPLACE_TABLE_NAME }}', function (Blueprint $table) {
-            $table->primary('{{ REPLACE_FIELD_NAME }}');
+            $table->dropIndex('{{ REPLACE_FIELD_NAME }}');
         });
     }
 
     public function down()
     {
         Schema::table('{{ REPLACE_TABLE_NAME }}', function (Blueprint $table) {
-            $table->dropPrimary('{{ REPLACE_FIELD_NAME }}');
         });
     }
 };

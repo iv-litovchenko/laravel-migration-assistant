@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Pluralizer;
+use Illuminate\Support\Facades\Schema;
 
 abstract class AbstractMakeCommand extends Command
 {
@@ -75,5 +76,35 @@ abstract class AbstractMakeCommand extends Command
         } else {
             $this->info("File: {$path} already exits");
         }
+    }
+
+    protected function getAllTables()
+    {
+        $tablesArray = [];
+        $i = 1;
+
+        $allTables = Schema::getConnection()->getDoctrineSchemaManager()->listTableNames();
+        foreach ($allTables as $tableName) {
+            if (Schema::hasTable($tableName)) {
+                $tablesArray[$i] = $tableName;
+                $i++;
+            }
+        }
+
+        return $tablesArray;
+    }
+
+    protected function getAllFieldsByTable($tableName)
+    {
+        $columnsArray = [];
+        $i = 1;
+
+        $columns = Schema::getConnection()->getDoctrineSchemaManager()->listTableColumns($tableName);
+        foreach ($columns as $column) {
+            $columnsArray[$i] = $column->getName();
+            $i++;
+        }
+
+        return $columnsArray;
     }
 }

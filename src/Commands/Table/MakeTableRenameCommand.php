@@ -3,6 +3,7 @@
 namespace Litovchenko\MigrationAssistant\Commands\Table;
 
 use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
+use Illuminate\Support\Facades\Schema;
 
 final class MakeTableRenameCommand extends AbstractMakeCommand
 {
@@ -15,7 +16,13 @@ final class MakeTableRenameCommand extends AbstractMakeCommand
 
     public function handle()
     {
-        $this->argTableName1 = $this->ask('Enter table name 1 (example: posts)');
+        $this->argTableName = $this->choice(
+            'Select table name 1 (example: posts)',
+            $this->getAllTables(),
+            '',
+            null,
+            false
+        );
         $this->argTableName2 = $this->ask('Enter table name 2 (example: posts_new)');
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName1 . '_to_' . $this->argTableName2);

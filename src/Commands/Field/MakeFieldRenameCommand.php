@@ -16,7 +16,13 @@ final class MakeFieldRenameCommand extends AbstractMakeCommand
 
     public function handle()
     {
-        $this->argTableName = $this->ask('Enter table name (example: posts)');
+        $this->argTableName = $this->choice(
+            'Select table name (example: posts)',
+            $this->getAllTables(),
+            '',
+            null,
+            false
+        );
         $this->argFieldName1 = $this->ask('Enter field name 1 (example: title)');
         $this->argFieldName2 = $this->ask('Enter field name 2 (example: title_new)');
 

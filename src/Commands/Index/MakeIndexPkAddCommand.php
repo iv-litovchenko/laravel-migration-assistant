@@ -8,15 +8,27 @@ final class MakeIndexPkAddCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:index:pk.add';
     protected $stubPath = 'index/primary.add.stub';
-    protected $fileNamePrefix = 'field_add_';
+    protected $fileNamePrefix = 'field_index_pk_add_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';
     protected $argFieldName = '';
 
     public function handle()
     {
-        $this->argTableName = $this->ask('Enter table name (example: posts)');
-        $this->argFieldName = $this->ask('Enter field name (example: id, title)');
+        $this->argTableName = $this->choice(
+            'Select table name (example: posts)',
+            $this->getAllTables(),
+            '',
+            null,
+            false
+        );
+        $this->argFieldName = $this->choice(
+            'Select field name (example: id, title)',
+            $this->getAllFieldsByTable($this->argTableName),
+            '',
+            null,
+            false
+        );
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName . '_' . $this->argFieldName);
             $this->info('Successfully completed!');

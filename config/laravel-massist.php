@@ -23,14 +23,17 @@ return [
             4 => 'Drop'
         ],
         'Index' => [
-            1 => 'PK.Add',
-            2 => 'PK.Rename',
-            3 => 'PK.Drop'
+            1 => 'Index.Add',
+            2 => 'Index.Drop',
+            3 => 'PK.Add',
+            4 => 'PK.Drop',
+            5 => 'Unique.Add',
+            6 => 'Unique.Drop'
         ],
         'FK (-)' => [
 
         ],
-        'Db content (-)' => [
+        'Db content // todo' => [
             'Insert', // InsertTableConfigDataEmailStudents
             'Update',
             'Delete'

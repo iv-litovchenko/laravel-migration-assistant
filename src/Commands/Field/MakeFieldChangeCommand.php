@@ -15,7 +15,13 @@ final class MakeFieldChangeCommand extends AbstractMakeCommand
 
     public function handle()
     {
-        $this->argTableName = $this->ask('Enter table name (example: posts)');
+        $this->argTableName = $this->choice(
+            'Select table name (example: posts)',
+            $this->getAllTables(),
+            '',
+            null,
+            false
+        );
         $this->argFieldName = $this->ask('Enter field name (example: title)');
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName . '_' . $this->argFieldName);

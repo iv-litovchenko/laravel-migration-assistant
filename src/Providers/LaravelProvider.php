@@ -14,7 +14,12 @@ use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldChangeCommand;
 use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldRenameCommand;
 use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldDropCommand;
 
+use Litovchenko\MigrationAssistant\Commands\Index\MakeIndexAddCommand;
+use Litovchenko\MigrationAssistant\Commands\Index\MakeIndexDropCommand;
 use Litovchenko\MigrationAssistant\Commands\Index\MakeIndexPkAddCommand;
+use Litovchenko\MigrationAssistant\Commands\Index\MakeIndexPkDropCommand;
+use Litovchenko\MigrationAssistant\Commands\Index\MakeIndexUniqueAddCommand;
+use Litovchenko\MigrationAssistant\Commands\Index\MakeIndexUniqueDropCommand;
 
 use Litovchenko\MigrationAssistant\Commands\RunMigration\RunMigrationDefaultCommand;
 use Litovchenko\MigrationAssistant\Commands\RunMigration\RunMigrationForceCommand;
@@ -47,7 +52,12 @@ final class LaravelProvider extends ServiceProvider
                 MakeFieldRenameCommand::class,
                 MakeFieldDropCommand::class,
 
+                MakeIndexAddCommand::class,
+                MakeIndexDropCommand::class,
                 MakeIndexPkAddCommand::class,
+                MakeIndexPkDropCommand::class,
+                MakeIndexUniqueAddCommand::class,
+                MakeIndexUniqueDropCommand::class,
 
                 RunMigrationDefaultCommand::class,
                 RunMigrationForceCommand::class,

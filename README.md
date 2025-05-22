@@ -16,5 +16,11 @@ Route::get('/liapp', function () {
     return $liApp->main();
 });
 
---
-Сделать постановку существующих таблиц и колонок
+Schema::table('users', static function (Blueprint $table) {
+    $schemaManager = Schema::getConnection()->getDoctrineSchemaManager();
+    $indexesFound  = $schemaManager->listTableIndexes('users');
+
+    if (! array_key_exists('users_email_index', $indexesFound)) {
+        $table->index('email', 'users_email_index');
+    }
+});
