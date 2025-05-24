@@ -1,0 +1,20 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::table('{{ REPLACE_TABLE_NAME }}', function (Blueprint $table) {
+            $table->renameColumn('{{ REPLACE_FIELD_NAME_1 }}', '{{ REPLACE_FIELD_NAME_2 }}');
+        });
+    }
+
+    public function down()
+    {
+    }
+};

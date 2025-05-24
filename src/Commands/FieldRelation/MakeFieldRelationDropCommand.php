@@ -1,14 +1,14 @@
 <?php
 
-namespace Litovchenko\MigrationAssistant\Commands\Field;
+namespace Litovchenko\MigrationAssistant\Commands\FieldRelation;
 
 use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 
-final class MakeFieldChangeCommand extends AbstractMakeCommand
+final class MakeFieldRelationDropCommand extends AbstractMakeCommand
 {
-    protected $signature = 'make:massist:field:change';
-    protected $stubPath = 'field/change.stub';
-    protected $fileNamePrefix = 'field_change_';
+    protected $signature = 'make:massist:fieldrelation:drop';
+    protected $stubPath = 'field-relation/drop.stub';
+    protected $fileNamePrefix = 'fieldref_drop_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';
     protected $argFieldName = '';
@@ -22,13 +22,7 @@ final class MakeFieldChangeCommand extends AbstractMakeCommand
             null,
             false
         );
-        $this->argFieldName = $this->choice(
-            'Enter field name (example: title)',
-            $this->getAllFieldsByTable($this->argTableName),
-            '',
-            null,
-            false
-        );
+        $this->argFieldName = $this->ask('Enter field name (example: title)');
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName . '_' . $this->argFieldName);
             $this->info('Successfully completed!');

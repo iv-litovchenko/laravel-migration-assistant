@@ -14,6 +14,11 @@ use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldChangeCommand;
 use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldRenameCommand;
 use Litovchenko\MigrationAssistant\Commands\Field\MakeFieldDropCommand;
 
+use Litovchenko\MigrationAssistant\Commands\FieldRelation\MakeFieldRelationAddCommand;
+use Litovchenko\MigrationAssistant\Commands\FieldRelation\MakeFieldRelationChangeCommand;
+use Litovchenko\MigrationAssistant\Commands\FieldRelation\MakeFieldRelationDropCommand;
+use Litovchenko\MigrationAssistant\Commands\FieldRelation\MakeFieldRelationRenameCommand;
+
 use Litovchenko\MigrationAssistant\Commands\Index\MakeIndexAddCommand;
 use Litovchenko\MigrationAssistant\Commands\Index\MakeIndexDropCommand;
 use Litovchenko\MigrationAssistant\Commands\Index\MakeIndexPkAddCommand;
@@ -51,6 +56,11 @@ final class LaravelProvider extends ServiceProvider
                 MakeFieldChangeCommand::class,
                 MakeFieldRenameCommand::class,
                 MakeFieldDropCommand::class,
+
+                MakeFieldRelationAddCommand::class,
+                MakeFieldRelationChangeCommand::class,
+                MakeFieldRelationRenameCommand::class,
+                MakeFieldRelationDropCommand::class,
 
                 MakeIndexAddCommand::class,
                 MakeIndexDropCommand::class,

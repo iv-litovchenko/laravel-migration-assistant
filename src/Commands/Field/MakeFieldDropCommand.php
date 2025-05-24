@@ -22,7 +22,13 @@ final class MakeFieldDropCommand extends AbstractMakeCommand
             null,
             false
         );
-        $this->argFieldName = $this->ask('Enter field name (example: title)');
+        $this->argFieldName = $this->choice(
+            'Enter field name (example: title)',
+            $this->getAllFieldsByTable($this->argTableName),
+            '',
+            null,
+            false
+        );
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName . '_' . $this->argFieldName);
             $this->info('Successfully completed!');

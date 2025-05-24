@@ -4,10 +4,10 @@ return [
     'commands' => [
         'Table' => [
             1 => 'Create',
-            2 => 'CreatePivot // todo',
-            3 => 'Rename',
-            4 => 'Alter',
-            5 => 'Drop'
+            // 2 => 'CreatePivot // todo',
+            2 => 'Rename',
+            3 => 'Alter',
+            4 => 'Drop'
         ],
         'Field' => [
             1 => 'Add',
@@ -16,11 +16,12 @@ return [
             4 => 'Move // todo',
             5 => 'Drop'
         ],
-        'Field relation' => [
+        'Field Relation' => [
             1 => 'Add',
             2 => 'Change',
             3 => 'Rename',
-            4 => 'Drop'
+            4 => 'Move // todo',
+            5 => 'Drop'
         ],
         'Index' => [
             1 => 'Index.Add',
@@ -30,9 +31,9 @@ return [
             5 => 'Unique.Add',
             6 => 'Unique.Drop'
         ],
-        'FK (-)' => [
-
-        ],
+//        'FK (-)' => [
+//
+//        ],
         'Db content // todo' => [
             'Insert', // InsertTableConfigDataEmailStudents
             'Update',

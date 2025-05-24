@@ -1,14 +1,14 @@
 <?php
 
-namespace Litovchenko\MigrationAssistant\Commands\Field;
+namespace Litovchenko\MigrationAssistant\Commands\FieldRelation;
 
 use Litovchenko\MigrationAssistant\Commands\AbstractMakeCommand;
 
-final class MakeFieldRenameCommand extends AbstractMakeCommand
+final class MakeFieldRelationRenameCommand extends AbstractMakeCommand
 {
-    protected $signature = 'make:massist:field:rename';
-    protected $stubPath = 'field/rename.stub';
-    protected $fileNamePrefix = 'field_rename_';
+    protected $signature = 'make:massist:fieldrelation:rename';
+    protected $stubPath = 'field-relation/rename.stub';
+    protected $fileNamePrefix = 'fieldref_rename_';
     protected $fileNamePostfix = '.php';
     protected $argTableName = '';
     protected $argFieldName1 = '';
@@ -23,14 +23,9 @@ final class MakeFieldRenameCommand extends AbstractMakeCommand
             null,
             false
         );
-        $this->argFieldName1 = $this->choice(
-            'Enter field name 1 (example: title)',
-            $this->getAllFieldsByTable($this->argTableName),
-            '',
-            null,
-            false
-        );
+        $this->argFieldName1 = $this->ask('Enter field name 1 (example: title)');
         $this->argFieldName2 = $this->ask('Enter field name 2 (example: title_new)');
+
         if ($this->confirm('Confirm?')) {
             $this->makeFile($this->argTableName . '_' . $this->argFieldName1 . '_to_' . $this->argFieldName2);
             $this->info('Successfully completed!');
