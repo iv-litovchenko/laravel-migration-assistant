@@ -58,9 +58,9 @@ final class LaravelProvider extends ServiceProvider
                 MakeFieldDropCommand::class,
 
                 MakeFieldRelationAddCommand::class,
-                MakeFieldRelationChangeCommand::class,
-                MakeFieldRelationRenameCommand::class,
-                MakeFieldRelationDropCommand::class,
+                // MakeFieldRelationChangeCommand::class,
+                // MakeFieldRelationRenameCommand::class,
+                // MakeFieldRelationDropCommand::class,
 
                 MakeIndexAddCommand::class,
                 MakeIndexDropCommand::class,

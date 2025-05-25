@@ -39,8 +39,10 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
             false
         );
 
-#        switch($this->refType) {
-#            case 3:
+        print $this->refType;
+
+        switch($this->refType) {
+            case 'm to 1':
 
                 $this->argTableName2 = $this->choice(
                     'Select reference table',
@@ -60,12 +62,12 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
 
                 // $this->argFieldName = $this->ask('Enter field name (example: refm1_user)');
                 if ($this->confirm('Confirm?')) {
-                    $this->makeFile($this->argTableName1 . '_' . $this->argFieldName);
+                    $this->makeFile($this->argTableName1 . '_refm1_' .  Str::singular($this->argTableName2));
                     $this->info('Successfully completed!');
                 }
 
-#                break;
-#        }
+                break;
+        }
 
         //$this->argFieldName = $this->ask('Enter field name (example: refm1_user)');
         //if ($this->confirm('Confirm?')) {
@@ -83,7 +85,7 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
             // 'REPLACE_CLASS_NAME' => $this->getSingularClassName($this->argTableName),
             'REPLACE_TABLE_NAME_1' => $this->argTableName1,
             'REPLACE_TABLE_NAME_2' => $this->argTableName2,
-            'REPLACE_FIELDRELATION_NAME' => Str::singular($this->argTableName1) . '_refm1_' .  Str::singular($this->argTableName2),
+            'REPLACE_FIELDRELATION_NAME' => 'refm1_' .  Str::singular($this->argTableName2),
         ];
     }
 }

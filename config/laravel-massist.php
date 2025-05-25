@@ -18,12 +18,12 @@ return [
         ],
         'Field Relation' => [
             1 => 'Add',
-            2 => 'Change',
-            3 => 'Rename',
-            4 => 'Move // todo',
-            5 => 'Drop'
+            // 2 => 'Change',
+            // 3 => 'Rename',
+            // 4 => 'Move // todo',
+            2 => 'Drop'
         ],
-        'Index' => [
+        'Index' => [ // FK
             1 => 'Index.Add',
             2 => 'Index.Drop',
             3 => 'PK.Add',
@@ -31,9 +31,6 @@ return [
             5 => 'Unique.Add',
             6 => 'Unique.Drop'
         ],
-//        'FK (-)' => [
-//
-//        ],
         'Db content // todo' => [
             'Insert', // InsertTableConfigDataEmailStudents
             'Update',
@@ -42,11 +39,14 @@ return [
         'Seeds (-)' => [
 
         ],
-        'Rollback migration (-)' => [],
-        'Run migration' => [
+        'Run migration' => [ // Rollback migration (-)
             1 => 'Default',
             2 => 'Force',
             3 => 'Fresh'
-        ]
+        ],
+        'Show Help' => [
+            1 => "All tables",
+            2 => "All fields in table",
+        ],
     ]
 ];

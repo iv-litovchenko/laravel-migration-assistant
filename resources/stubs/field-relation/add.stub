@@ -18,7 +18,7 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::table('{{ REPLACE_TABLE_NAME }}', function (Blueprint $table) {
+        Schema::table('{{ REPLACE_TABLE_NAME_1 }}', function (Blueprint $table) {
             // $table->dropForeign('some_table_local_key_foreign');
         });
     }
