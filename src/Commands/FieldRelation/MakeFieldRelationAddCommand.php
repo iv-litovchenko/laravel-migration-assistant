@@ -67,6 +67,32 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
                 }
 
                 break;
+
+            case 'm to m':
+
+                $this->argTableName2 = $this->choice(
+                    'Select reference table',
+                    $this->getAllTables(),
+                    '',
+                    null,
+                    false
+                );
+
+                $this->argFieldName = $this->choice(
+                    'Select field name in reference table',
+                    $this->getAllFieldsByTable($this->argTableName2),
+                    '',
+                    null,
+                    false
+                );
+
+                // $this->argFieldName = $this->ask('Enter field name (example: refm1_user)');
+                if ($this->confirm('Confirm?')) {
+                    $this->makeFile($this->argTableName1 . '_refmm_' .  Str::singular($this->argTableName2));
+                    $this->info('Successfully completed!');
+                }
+
+                break;
         }
 
         //$this->argFieldName = $this->ask('Enter field name (example: refm1_user)');

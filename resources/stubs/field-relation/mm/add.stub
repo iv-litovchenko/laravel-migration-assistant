@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::table('{{ REPLACE_TABLE_NAME_1 }}', function (Blueprint $table) {
+            $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME }}')->nullable();
+            // $table->foreignId('{{ REPLACE_FIELDRELATION_NAME }}')->constrained()->onDelete('cascade'); // Внешний ключ
+            // $table->foreign('{{ REPLACE_FIELDRELATION_NAME }}')->references('id')->on('{{ REPLACE_TABLE_NAME_1 }}')->onDelete('cascade');
+        });
+        Schema::create('mm_REPLACE_TABLE_NAME_MM', function (Blueprint $table) {
+            $table->unsignedBigInteger(); // Добавляем первичный ключ (необязательно)
+            $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME }}')->nullable();
+            $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME }}')->nullable();
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('role_id')->constrained()->onDelete('cascade');
+            // $table->timestamps(); // Добавляем временные метки (created_at и updated_at)
+        });
+    }
+
+    public function down()
+    {
+        // Schema::dropIfExists('role_user');
+        // Schema::table('{{ REPLACE_TABLE_NAME_1 }}', function (Blueprint $table) {
+            // $table->dropForeign('some_table_local_key_foreign');
+        // });
+    }
+};
