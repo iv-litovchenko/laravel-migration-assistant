@@ -22,6 +22,7 @@ return new class extends Migration
             // $table->foreignId('role_id')->constrained()->onDelete('cascade');
             // $table->timestamps(); // Добавляем временные метки (created_at и updated_at)
         });
+
         // model - 1
         // public function _{{ REPLACE_FIELDRELATION_NAME }}()
         // {
