@@ -67,6 +67,20 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
 
             case 'm to m':
                 $this->stubPath = 'field-relation/mm/add.stub';
+                $this->argTableName1 = $this->choice(
+                    'Select base table',
+                    $this->getAllTables(),
+                    '',
+                    null,
+                    false
+                );
+                $this->argFieldName1 = $this->choice(
+                    'Select field name in base table',
+                    $this->getAllFieldsByTable($this->argTableName1),
+                    '',
+                    null,
+                    false
+                );
                 $this->argTableName2 = $this->choice(
                     'Select reference table',
                     $this->getAllTables(),
@@ -74,7 +88,7 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
                     null,
                     false
                 );
-                $this->argFieldName = $this->choice(
+                $this->argFieldName2 = $this->choice(
                     'Select field name in reference table',
                     $this->getAllFieldsByTable($this->argTableName2),
                     '',
@@ -100,6 +114,7 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
     {
         // убираем букву "s"
         // Str::singular (в единственное число)
+        // Str::plural (во множественное число)
         switch($this->refType) {
             case 'm to 1':
                 return [
@@ -112,13 +127,20 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
                 ];
                 break;
             case 'm to m':
+                $mmTable = [];
+                $mmTable[] = $this->argTableName1;
+                $mmTable[] = $this->argTableName2;
+                sort($mmTable);
+                $mmTable = 'mm_' . implode('2', $mmTable);
                 return [
                     // 'REPLACE_NAMESPACE' => 'App\\Interfaces',
                     // 'REPLACE_CLASS_NAME' => $this->getSingularClassName($this->argTableName),
+                    'REPLACE_TABLE_NAME_MM' => $mmTable,
                     'REPLACE_TABLE_NAME_1' => $this->argTableName1,
                     'REPLACE_TABLE_NAME_2' => $this->argTableName2,
-                    'REPLACE_FIELDRELATION_NAME_1' => 'refmm_' . Str::singular($this->argTableName2),
-                    'REPLACE_FIELDRELATION_NAME_2' => $this->argFieldName1
+                    'REPLACE_FIELDRELATION_NAME' => 'refmm_' . Str::plural($this->argTableName2),
+                    'REPLACE_FIELDRELATION_NAME_1' => 'refm1_' . str_replace('_id', '', $this->argFieldName1),
+                    'REPLACE_FIELDRELATION_NAME_2' => 'refm1_' . str_replace('_id', '', $this->argFieldName2),
                 ];
                 break;
         }
