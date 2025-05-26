@@ -10,18 +10,28 @@ return new class extends Migration
     public function up()
     {
         Schema::table('{{ REPLACE_TABLE_NAME_1 }}', function (Blueprint $table) {
-            $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME }}')->nullable();
-            // $table->foreignId('{{ REPLACE_FIELDRELATION_NAME }}')->constrained()->onDelete('cascade'); // Внешний ключ
-            // $table->foreign('{{ REPLACE_FIELDRELATION_NAME }}')->references('id')->on('{{ REPLACE_TABLE_NAME_1 }}')->onDelete('cascade');
+            $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME_1 }}')->nullable();
         });
         Schema::create('mm_REPLACE_TABLE_NAME_MM', function (Blueprint $table) {
             $table->unsignedBigInteger(); // Добавляем первичный ключ (необязательно)
             $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME }}')->nullable();
             $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME }}')->nullable();
+            // $table->foreignId('{{ REPLACE_FIELDRELATION_NAME_1 }}')->constrained()->onDelete('cascade'); // Внешний ключ
+            // $table->foreign('{{ REPLACE_FIELDRELATION_NAME_1 }}')->references('id')->on('{{ REPLACE_TABLE_NAME_1 }}')->onDelete('cascade');
             // $table->foreignId('user_id')->constrained()->onDelete('cascade');
             // $table->foreignId('role_id')->constrained()->onDelete('cascade');
             // $table->timestamps(); // Добавляем временные метки (created_at и updated_at)
         });
+        // model - 1
+        // public function _{{ REPLACE_FIELDRELATION_NAME_1 }}()
+        // {
+        //      return $this->belongsToMany({{ REPLACE_TABLE_NAME_2 }}::class, '{{ REPLACE_FIELDRELATION_NAME_1 }}', '{{ REPLACE_FIELDRELATION_NAME_2 }}');
+        // }
+
+        // model - 2
+        // public function _{{ REPLACE_FIELDRELATION_NAME_1 }}() //
+        // {
+        // }
     }
 
     public function down()
