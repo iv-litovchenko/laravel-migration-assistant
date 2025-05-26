@@ -2,6 +2,10 @@
 
 return [
     'commands' => [
+        'Show Help' => [
+            1 => "All tables",
+            2 => "All fields in table",
+        ],
         'Table' => [
             1 => 'Create',
             // 2 => 'CreatePivot // todo',
@@ -43,10 +47,6 @@ return [
             1 => 'Default',
             2 => 'Force',
             3 => 'Fresh'
-        ],
-        'Show Help' => [
-            1 => "All tables",
-            2 => "All fields in table",
         ],
     ]
 ];

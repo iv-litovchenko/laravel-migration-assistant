@@ -13,7 +13,7 @@ return new class extends Migration
             $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME }}')->nullable();
         });
         Schema::create('{{ REPLACE_TABLE_NAME_MM }}', function (Blueprint $table) {
-            $table->unsignedBigInteger(); // Добавляем первичный ключ (необязательно)
+            // $table->unsignedBigInteger('id'); // Добавляем первичный ключ (необязательно)
             $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME_1 }}')->nullable();
             $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME_2 }}')->nullable();
             // $table->foreignId('{{ REPLACE_FIELDRELATION_NAME_1 }}')->constrained()->onDelete('cascade'); // Внешний ключ
