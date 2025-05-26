@@ -10,10 +10,21 @@ return new class extends Migration
     public function up()
     {
         Schema::table('{{ REPLACE_TABLE_NAME_1 }}', function (Blueprint $table) {
-            $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME }}')->nullable();
-            // $table->foreignId('{{ REPLACE_FIELDRELATION_NAME }}')->constrained()->onDelete('cascade'); // Внешний ключ
-            // $table->foreign('{{ REPLACE_FIELDRELATION_NAME }}')->references('id')->on('{{ REPLACE_TABLE_NAME_1 }}')->onDelete('cascade');
+            $table->unsignedBigInteger('{{ REPLACE_FIELDRELATION_NAME_1 }}')->nullable();
+            // $table->foreignId('{{ REPLACE_FIELDRELATION_NAME_1 }}')->constrained()->onDelete('cascade'); // Внешний ключ
+            // $table->foreign('{{ REPLACE_FIELDRELATION_NAME_1 }}')->references('id')->on('{{ REPLACE_TABLE_NAME_1 }}')->onDelete('cascade');
         });
+
+        // model - 1
+        // public function _{{ REPLACE_FIELDRELATION_NAME_1 }}()
+        // {
+        //      return $this->belongsTo({{ REPLACE_TABLE_NAME_2 }}::class, '{{ REPLACE_FIELDRELATION_NAME_1 }}', '{{ REPLACE_FIELDRELATION_NAME_2 }}');
+        // }
+
+        // model - 2
+        // public function _{{ REPLACE_FIELDRELATION_NAME_1 }}() //
+        // {
+        // }
     }
 
     public function down()

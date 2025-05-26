@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 final class MakeFieldRelationAddCommand extends AbstractMakeCommand
 {
     protected $signature = 'make:massist:fieldrelation:add';
-    protected $stubPath = 'field-relation/add.stub';
+    protected $stubPath = 'field-relation/';
     protected $fileNamePrefix = 'fieldref_add_';
     protected $fileNamePostfix = '.php';
     protected $argTableName1 = '';
@@ -25,12 +25,11 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
             null,
             false
         );
-
         $this->refType = $this->choice(
             'Select reference type',
             [
-                1 => '1 to 1',
-                2 => '1 to m',
+                // 1 => '1 to 1',
+                // 2 => '1 to m',
                 3 => 'm to 1',
                 4 => 'm to m',
             ],
@@ -38,12 +37,10 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
             null,
             false
         );
-
-        print $this->refType;
-
         switch($this->refType) {
             case 'm to 1':
 
+                $this->stubPath = 'field-relation/m1/add.stub';
                 $this->argTableName2 = $this->choice(
                     'Select reference table',
                     $this->getAllTables(),
@@ -51,7 +48,6 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
                     null,
                     false
                 );
-
                 $this->argFieldName = $this->choice(
                     'Select field name in reference table',
                     $this->getAllFieldsByTable($this->argTableName2),
@@ -59,13 +55,11 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
                     null,
                     false
                 );
-
                 // $this->argFieldName = $this->ask('Enter field name (example: refm1_user)');
                 if ($this->confirm('Confirm?')) {
                     $this->makeFile($this->argTableName1 . '_refm1_' .  Str::singular($this->argTableName2));
                     $this->info('Successfully completed!');
                 }
-
                 break;
 
             case 'm to m':
@@ -111,7 +105,8 @@ final class MakeFieldRelationAddCommand extends AbstractMakeCommand
             // 'REPLACE_CLASS_NAME' => $this->getSingularClassName($this->argTableName),
             'REPLACE_TABLE_NAME_1' => $this->argTableName1,
             'REPLACE_TABLE_NAME_2' => $this->argTableName2,
-            'REPLACE_FIELDRELATION_NAME' => 'refm1_' .  Str::singular($this->argTableName2),
+            'REPLACE_FIELDRELATION_NAME_1' => 'refm1_' .  Str::singular($this->argTableName2),
+            'REPLACE_FIELDRELATION_NAME_2' => $this->argFieldName
         ];
     }
 }
