@@ -46,7 +46,8 @@ return [
         'Run migration' => [ // Rollback migration (-)
             1 => 'Default',
             2 => 'Force',
-            3 => 'Fresh'
+            3 => 'Fresh',
+            4 => 'Rollback'
         ],
     ]
 ];

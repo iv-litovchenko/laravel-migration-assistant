@@ -3,6 +3,7 @@
 namespace Litovchenko\MigrationAssistant\Providers;
 
 use Litovchenko\MigrationAssistant\Commands\MigrationAssistantCommand;
+use Litovchenko\MigrationAssistant\Commands\RunMigration\RunMigrationRollbackCommand;
 use Litovchenko\MigrationAssistant\Commands\Table\MakeTableAlterCommand;
 use Litovchenko\MigrationAssistant\Commands\Table\MakeTableCreateCommand;
 use Litovchenko\MigrationAssistant\Commands\Table\MakeTableCreatePivotCommand;
@@ -71,7 +72,8 @@ final class LaravelProvider extends ServiceProvider
 
                 RunMigrationDefaultCommand::class,
                 RunMigrationForceCommand::class,
-                RunMigrationFreshCommand::class
+                RunMigrationFreshCommand::class,
+                RunMigrationRollbackCommand::class
             ]);
         }
 
